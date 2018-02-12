@@ -64,14 +64,6 @@ class PhpProtoParser
         return $params_arr;
     }
 
-    private function getProtoAsStr($proto_path)
-    {
-        $cmd = "cat " . escapeshellarg($proto_path);
-        exec($cmd, $out, $ret);
-
-        return implode("\n", $out);
-    }
-
     private function removeComments($proto_str)
     {
         $proto_str = preg_replace("#(?<=\\/\\*).*(?=\\*\\/)#", "", $proto_str);
